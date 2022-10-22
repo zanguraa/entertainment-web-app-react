@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import Header from "./components/Header";
+import Home from "./components/Home";
 
 function App() {
   return (
     <MainCont>
-      <Header />
+      <Home />
     </MainCont>
   );
 }
@@ -12,5 +12,5 @@ function App() {
 export default App;
 
 const MainCont = styled.div`
-  display: flex;
+ 
 `;
