@@ -2,13 +2,18 @@ import React from "react";
 import Search from "./Search";
 import Header from "./Header";
 import styled from "styled-components";
+import TrendingSlider from "./TrendingSlider";
+import MoviesData from '../data.json';
+import Movies from "./Movies";
 
 function Home() {
   return (
     <HomeCont>
       <Header />
+      <Search />
       <MoviesBody>
-        <Search />
+      <TrendingSlider MoviesData={MoviesData} />
+        <Movies MoviesData={MoviesData} />
       </MoviesBody>
     </HomeCont>
   );
