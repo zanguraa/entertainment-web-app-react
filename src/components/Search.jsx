@@ -6,7 +6,7 @@ function Search() {
   return (
     <LabelCont>
       <img src={SearchImg} alt="search" />
-      <SearchInput type="search" placeholder="Search for movies or TV series" />
+      <SearchInput style={{fontFamily: 'outfit'}} type="search" placeholder="Search for movies or TV series" />
     </LabelCont>
   );
 }
@@ -15,7 +15,7 @@ export default Search;
 
 const LabelCont = styled.label`
   display: flex;
-  gap: 1rem;
+  gap: auto;
   align-items: center;
 `;
 

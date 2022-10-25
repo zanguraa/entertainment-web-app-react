@@ -68,7 +68,8 @@ function Movies({ MoviesData }) {
 export default Movies;
 
 const MoviesConfig = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   flex-wrap: wrap;
   align-items: center;
@@ -94,19 +95,21 @@ const MovieInfo = styled.div`
   font-weight: 300;
   font-size: 11px;
   line-height: 14px;
-  mix-blend-mode: normal;
-  opacity: 0.75;
+ 
   div {
     display: flex;
     gap: 0.5rem;
   }
   p {
     margin: 0;
+    mix-blend-mode: normal;
+  opacity: 0.75;
   }
   h4 {
     margin: 0;
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
+    opacity: 1;
   }
 `;

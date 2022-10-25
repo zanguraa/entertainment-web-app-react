@@ -1,17 +1,19 @@
 import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import TrendingMovie from "./TrendingMovie";
+import styled from "styled-components";
+import '@splidejs/react-splide/css';
 
 function TrendingSlider({ MoviesData }) {
+  const data = MoviesData;
   return (
-    <div>
-      <h2 style={{ color: "white" }}>Trending</h2>
+    <SliderContainer>
+      <h2>Trending</h2>
       <Splide
         options={{
           fixedWidth: 700,
           autoplay: true,
           perMove: 1,
-          interval: 5000,
+          interval: 2000,
           pagination: false,
           arrows: false,
           direction: "ltr",
@@ -34,16 +36,44 @@ function TrendingSlider({ MoviesData }) {
             },
           },
         }}
-        aria-label="Trending Movies"
       >
-        {MoviesData.filter((movie) => movie.isTrending).map((movie, index) => {
-          <SplideSlide key={index}>
-            <TrendingMovie movie={movie} />
-          </SplideSlide>;
-        })}
+        
+          {data
+            .filter((movie) => movie.isTrending)
+            .map((movie, index) => (
+              <SplideSlide key={index}>
+                <TrendingMovies>
+                  <img
+                    style={{
+                      minWidth: "163px",
+                      width: "100%",
+                      height: "auto",
+                      borderRadius: "8px",
+                    }}
+                    src={process.env.PUBLIC_URL + movie.thumbnail.regular.large}
+                    alt="movies-trending"
+                  />
+                </TrendingMovies>
+              </SplideSlide>
+            ))}
+        
       </Splide>
-    </div>
+    </SliderContainer>
   );
 }
 
 export default TrendingSlider;
+
+const SliderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  h2 {
+    color: white;
+  }
+`;
+
+const TrendingMovies = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
