@@ -17,6 +17,7 @@ const LabelCont = styled.label`
   display: flex;
   gap: auto;
   align-items: center;
+  padding: 1rem;
 `;
 
 const SearchInput = styled.input`

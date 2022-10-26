@@ -4,16 +4,22 @@ import Header from "./Header";
 import styled from "styled-components";
 import TrendingSlider from "./TrendingSlider";
 import MoviesData from '../data.json';
-import Movies from "./Movies";
+import MoviesCreator from "./MoviesCreator";
 
 function Home() {
+
+  const allMovies = MoviesData.map((movie, index)=> {
+    return movie
+  })
+
+
   return (
     <HomeCont>
-      <Header />
+      <Header path={"/"} />
       <Search />
       <MoviesBody>
       <TrendingSlider MoviesData={MoviesData} />
-        <Movies MoviesData={MoviesData} />
+        <MoviesCreator data={allMovies} />
       </MoviesBody>
     </HomeCont>
   );
