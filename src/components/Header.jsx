@@ -37,12 +37,24 @@ function Header(props) {
             />
           )}
         </Link>
-      
+
         <Link to="/entertainment-web-app-react/movies">
-            {path === "Movies" ? ( <img path="/entertainment-web-app-react/movies" src={MoviesIcon} alt="movies" />) :  (<img path="/entertainment-web-app-react/movies" src={MoviesIcon} alt="movies" />)}
-        </Link> 
-       
-          <Link to="/entertainment-web-app-react/series">
+          {path === "Movies" ? (
+            <img
+              path="/entertainment-web-app-react/movies"
+              src={MoviesIcon}
+              alt="movies"
+            />
+          ) : (
+            <img
+              path="/entertainment-web-app-react/movies"
+              src={MoviesIcon}
+              alt="movies"
+            />
+          )}
+        </Link>
+
+        <Link to="/entertainment-web-app-react/series">
           {path === "Series" ? (
             <img
               path="/entertainment-web-app-react/series"
@@ -61,8 +73,12 @@ function Header(props) {
         <img src={BookmarkIcon} alt="bookmarks" />
       </IconCont>
       <img
-        style={{ width: "24px", height: "24px", border: '1px solid #FFFFFF'
- }}
+        style={{
+          width: "24px",
+          height: "24px",
+          border: "1px solid #FFFFFF",
+          borderRadius: "50%",
+        }}
         src={UserProfile}
         alt="user-profile"
       />

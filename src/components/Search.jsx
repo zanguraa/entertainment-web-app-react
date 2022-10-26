@@ -2,11 +2,18 @@ import React from "react";
 import SearchImg from "../assets/icon-search.svg";
 import styled from "styled-components";
 
-function Search() {
+function Search(props) {
   return (
     <LabelCont>
       <img src={SearchImg} alt="search" />
-      <SearchInput style={{fontFamily: 'outfit'}} type="search" placeholder="Search for movies or TV series" />
+      <SearchInput
+        value={props.value}
+        onChange={props.onChange}
+        style={{ fontFamily: "outfit" }}
+        type="search"
+        id="search"
+        placeholder="Search for movies or TV series"
+      />
     </LabelCont>
   );
 }
