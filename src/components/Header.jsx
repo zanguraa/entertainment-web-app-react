@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import {
   TvSeriesIcon,
@@ -13,6 +13,7 @@ import {
 
 function Header(props) {
   let path = props.path;
+
   return (
     <HeaderCont>
       <img
@@ -21,9 +22,11 @@ function Header(props) {
         alt="logo"
       />
       <IconCont>
-        <Link to="/entertainment-web-app-react/">
+       
+        <NavLink to="/entertainment-web-app-react/">
           {path === "Home" ? (
             <img
+           
               path="/entertainment-web-app-react/"
               src={HomeIcon}
               alt="home"
@@ -36,9 +39,9 @@ function Header(props) {
               alt="home"
             />
           )}
-        </Link>
+        </NavLink>
 
-        <Link to="/entertainment-web-app-react/movies">
+        <NavLink to="/entertainment-web-app-react/movies">
           {path === "Movies" ? (
             <img
               path="/entertainment-web-app-react/movies"
@@ -52,9 +55,9 @@ function Header(props) {
               alt="movies"
             />
           )}
-        </Link>
+        </NavLink>
 
-        <Link to="/entertainment-web-app-react/series">
+        <NavLink to="/entertainment-web-app-react/series">
           {path === "Series" ? (
             <img
               path="/entertainment-web-app-react/series"
@@ -69,7 +72,7 @@ function Header(props) {
               alt="tv-series"
             />
           )}
-        </Link>
+        </NavLink>
         <img src={BookmarkIcon} alt="bookmarks" />
       </IconCont>
       <img

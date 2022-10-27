@@ -36,4 +36,7 @@ const HomeCont = styled.div`
 
 const MoviesBody = styled.div`
   padding: 1rem;
+  @media (min-width: 768px) {
+    padding: 1.25rem;
+  }
 `;

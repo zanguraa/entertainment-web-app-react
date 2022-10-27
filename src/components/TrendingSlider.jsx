@@ -1,7 +1,7 @@
 import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import styled from "styled-components";
-import '@splidejs/react-splide/css';
+import "@splidejs/react-splide/css";
 
 function TrendingSlider({ MoviesData }) {
   const data = MoviesData;
@@ -31,32 +31,24 @@ function TrendingSlider({ MoviesData }) {
               gap: 30,
             },
             768: {
-              fixedWidth: 240,
-              gap: 16,
+              fixedWidth: 470,
+              gap: 40,
             },
           },
         }}
       >
-        
-          {data
-            .filter((movie) => movie.isTrending)
-            .map((movie, index) => (
-              <SplideSlide key={index}>
-                <TrendingMovies>
-                  <img
-                    style={{
-                      minWidth: "163px",
-                      width: "100%",
-                      height: "auto",
-                      borderRadius: "8px",
-                    }}
-                    src={process.env.PUBLIC_URL + movie.thumbnail.regular.large}
-                    alt="movies-trending"
-                  />
-                </TrendingMovies>
-              </SplideSlide>
-            ))}
-        
+        {data
+          .filter((movie) => movie.isTrending)
+          .map((movie, index) => (
+            <SplideSlide key={index}>
+              <TrendingMovies>
+                <img
+                  src={process.env.PUBLIC_URL + movie.thumbnail.regular.large}
+                  alt="movies-trending"
+                />
+              </TrendingMovies>
+            </SplideSlide>
+          ))}
       </Splide>
     </SliderContainer>
   );
@@ -76,4 +68,13 @@ const SliderContainer = styled.div`
 const TrendingMovies = styled.div`
   display: flex;
   flex-direction: row;
+  img {
+    min-width: 163px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  @media (min-width: 768px) {
+    min-width: 470px;
+  }
 `;

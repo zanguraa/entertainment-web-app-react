@@ -74,17 +74,19 @@ const MoviesConfig = styled.div`
   gap: 1rem;
   flex-wrap: wrap;
   align-items: center;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  }
 `;
 
 const MovieSingle = styled.div`
   flex-basis: 40%;
   position: relative;
   margin-bottom: 1rem;
-  /* img {
-    width: 164px;
-    height: 110px;
-    border-radius: 8px;
-  } */
+@media (min-width: 768px) {
+  flex-basis: 30%;
+}
 `;
 const MovieInfo = styled.div`
   display: flex;
