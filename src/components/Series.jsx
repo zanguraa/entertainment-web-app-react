@@ -5,7 +5,7 @@ import Header from './Header';
 import Search from './Search';
 import styled from 'styled-components';
 
-function Series({title}) {
+function Series({ data, setData }) {
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -21,7 +21,7 @@ function Series({title}) {
       <Header path={"Series"}/>
       <Search value={searchValue} onChange={HandelClick} />
       <MoviesBody>
-    <MoviesCreator data={onlySeries} condition={searchValue} title={'TV Series'} />
+    <MoviesCreator data={onlySeries} setData={setData} condition={searchValue} title={'TV Series'} />
     </MoviesBody>
     </HomeCont>
   )

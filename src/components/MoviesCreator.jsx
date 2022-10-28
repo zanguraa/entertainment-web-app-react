@@ -1,34 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import { MoviesIcon, BookmarkSaved, Oval } from "../assets/index";
-
-
+import { MoviesIcon, BookmarkSaved, BookmarkFull, Oval } from "../assets/index";
 
 function MoviesCreator({ data, setData, title, condition }) {
-
-
-const bookmarkHandler = (title)=> {
-
-  const isBookmarked = data.map((bookmark, index)=> {
-    if(bookmark.title === title){
-      bookmark.isBookmarked = !bookmark.isBookmarked;
-      console.log(title)
-    }
-return bookmark;
-  })
-setData(isBookmarked);
-}
-
-
+  const bookmarkHandler = (title) => {
+    const isBookmarked = data.map((bookmark, index) => {
+      if (bookmark.title === title) {
+        bookmark.isBookmarked = !bookmark.isBookmarked;
+        console.log(title);
+      }
+      return bookmark;
+    });
+    setData(isBookmarked);
+  };
 
   const filteredMovies = condition.trim().toLowerCase()
     ? data.filter((movie) =>
         movie.title.toLowerCase().includes(condition.trim().toLowerCase())
       )
     : data;
-
-
-
 
   return (
     <div>
@@ -59,13 +49,14 @@ setData(isBookmarked);
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  cursor: "pointer"
                 }}
               >
                 {" "}
                 <img
-                onClick={()=> bookmarkHandler(movie.title)}
+                  onClick={() => bookmarkHandler(movie.title)}
                   style={{ width: "11x", height: "14px" }}
-                  src={BookmarkSaved}
+                  src={movie.isBookmarked ? BookmarkFull : BookmarkSaved}
                   alt="bookmark-saved"
                 />
               </div>
@@ -81,12 +72,8 @@ setData(isBookmarked);
                     }}
                   >
                     <img src={Oval} alt="oval" />
-                    <img
-                      style={{ height: "10px", width: "10px" }}
-                      src={MoviesIcon}
-                      alt="movies"
-                    />{" "}
-                    {movie.category} <img src={Oval} alt="oval" />
+                    <ImgMovie src={MoviesIcon} alt="movies" /> {movie.category}{" "}
+                    <img src={Oval} alt="oval" />
                   </p>
                   <p>{movie.rating}</p>
                 </div>
@@ -147,5 +134,20 @@ const MovieInfo = styled.div`
     font-size: 14px;
     line-height: 18px;
     opacity: 1;
+  }
+
+  @media (min-width: 768px) {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 16px;
+  }
+`;
+
+const ImgMovie = styled.img`
+  width: 10px;
+  height: 10px;
+  @media (min-width: 768px) {
+    width: 12px;
+    height: 12px;
   }
 `;
