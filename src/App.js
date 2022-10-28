@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import Series from "./components/Series";
 import Movies from "./components/Movies";
+import Bookmark from "./components/Bookmark";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
           <Route
             path="/entertainment-web-app-react/series"
             element={<Series />}
+          />
+           <Route
+            path="/entertainment-web-app-react/bookmark"
+            element={<Bookmark />}
           />
         </Routes>
       </BrowserRouter>
