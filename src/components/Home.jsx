@@ -6,7 +6,7 @@ import TrendingSlider from "./TrendingSlider";
 import MoviesData from "../data.json";
 import MoviesCreator from "./MoviesCreator";
 
-function Home() {
+function Home({ data, setData }) {
   const [searchValue, setSearchValue] = useState("");
 
   const HandelClick = (e) => {
@@ -21,15 +21,21 @@ function Home() {
   return (
     <HomeCont>
       <Header path={"/"} />
-      <Search value={searchValue} onChange={HandelClick} />
+
       <MoviesBody>
+        <Search value={searchValue} onChange={HandelClick} />
         {searchValue.length > 0 ? (
-          <MoviesCreator data={allMovies} condition={searchValue} />
+          <MoviesCreator
+            data={allMovies}
+            setData={setData}
+            condition={searchValue}
+          />
         ) : (
           <>
             <TrendingSlider MoviesData={MoviesData} />
             <MoviesCreator
               data={allMovies}
+              setData={setData}
               condition={searchValue.trim()}
               title="Recommended for you"
             />

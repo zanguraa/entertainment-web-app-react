@@ -34,6 +34,10 @@ function TrendingSlider({ MoviesData }) {
               fixedWidth: 470,
               gap: 40,
             },
+            500: {
+              fixedWidth: 210,
+              gap: 20,
+            },
           },
         }}
       >
@@ -76,5 +80,6 @@ const TrendingMovies = styled.div`
   }
   @media (min-width: 768px) {
     min-width: 470px;
+   
   }
 `;

@@ -3,25 +3,36 @@ import styled from 'styled-components';
 import Header from './Header';
 import MoviesCreator from './MoviesCreator';
 import Search from './Search';
-import MoviesData from "../data.json";
 
-function Bookmark() {
+
+function Bookmark({data, setData}) {
+
+  const bookmarkHandler = (title)=> {
+
+    const isBookmarked = data.filter((bookmark)=> {
+      if(bookmark.title === title){
+        bookmark.isBookmarked = !bookmark.isBookmarked;
+        
+      }
+  return bookmark;
+    })
+  setData(isBookmarked);
+  }
 
   const [searchValue, setSearchValue] = useState("");
 
   const HandelClick = (e) => {
     setSearchValue(e.target.value);
-    console.log(e.target.value);
   };
 
-  const onlyBookmarks = MoviesData.filter(bookmark => bookmark.isBookmarked === true)
+  const onlyBookmarks = data.filter(bookmark => bookmark.isBookmarked === true)
 
   return (
     <HomeCont>
     <Header path={"Series"}/>
-    <Search value={onlyBookmarks} onChange={HandelClick} />
+    <Search value={searchValue} onChange={HandelClick} />
     <MoviesBody>
-  <MoviesCreator data={onlyBookmarks} condition={searchValue} title={'TV Series'} />
+  <MoviesCreator data={onlyBookmarks} setData={setData} bookmarkHandler={bookmarkHandler}  condition={searchValue} title={'Bookmarks'} />
   </MoviesBody>
   </HomeCont>
   )

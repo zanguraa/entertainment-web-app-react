@@ -12,7 +12,6 @@ function Movies(props) {
 
   const HandelClick = (e) => {
     setSearchValue(e.target.value);
-    console.log(e.target.value);
   };
 
   return (

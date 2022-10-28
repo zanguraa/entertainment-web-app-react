@@ -2,14 +2,33 @@ import React from "react";
 import styled from "styled-components";
 import { MoviesIcon, BookmarkSaved, Oval } from "../assets/index";
 
-function MoviesCreator({ data, title, condition }) {
+
+
+function MoviesCreator({ data, setData, title, condition }) {
+
+
+const bookmarkHandler = (title)=> {
+
+  const isBookmarked = data.map((bookmark, index)=> {
+    if(bookmark.title === title){
+      bookmark.isBookmarked = !bookmark.isBookmarked;
+      console.log(title)
+    }
+return bookmark;
+  })
+setData(isBookmarked);
+}
+
+
+
   const filteredMovies = condition.trim().toLowerCase()
     ? data.filter((movie) =>
         movie.title.toLowerCase().includes(condition.trim().toLowerCase())
       )
     : data;
 
-  console.log(filteredMovies);
+
+
 
   return (
     <div>
@@ -44,6 +63,7 @@ function MoviesCreator({ data, title, condition }) {
               >
                 {" "}
                 <img
+                onClick={()=> bookmarkHandler(movie.title)}
                   style={{ width: "11x", height: "14px" }}
                   src={BookmarkSaved}
                   alt="bookmark-saved"

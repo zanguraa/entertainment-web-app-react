@@ -114,6 +114,9 @@ const HeaderCont = styled.div`
     height: 1rem;
   }
   @media (min-width: 768px) {
+    margin: 1.5rem;
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
     img {
       width: 1.25rem;
       height: 1.25rem;
