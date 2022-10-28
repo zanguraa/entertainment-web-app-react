@@ -2,12 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { MoviesIcon, BookmarkSaved, Oval } from "../assets/index";
 
-function MoviesCreator({ data }) {
+function MoviesCreator({ data, title, condition }) {
+  const filteredMovies = condition.trim().toLowerCase()
+    ? data.filter((movie) =>
+        movie.title.toLowerCase().includes(condition.trim().toLowerCase())
+      )
+    : data;
+
+  console.log(filteredMovies);
+
   return (
     <div>
-      <h2 style={{ color: "white" }}>Recommended for you</h2>
+      <h2 style={{ color: "white" }}>{title}</h2>
       <MoviesConfig>
-        {data.map((movie, index) => {
+        {filteredMovies.map((movie, index) => {
           return (
             <MovieSingle style={{ flexBasis: "40%" }} key={index}>
               <img
@@ -45,7 +53,13 @@ function MoviesCreator({ data }) {
               <MovieInfo>
                 <div>
                   <p>{movie.year} </p>
-                  <p style={{ display: "flex", alignItems: 'center', gap: '0.5rem' }}>
+                  <p
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
+                  >
                     <img src={Oval} alt="oval" />
                     <img
                       style={{ height: "10px", width: "10px" }}
@@ -76,7 +90,6 @@ const MoviesConfig = styled.div`
   align-items: center;
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-
   }
 `;
 
@@ -84,9 +97,9 @@ const MovieSingle = styled.div`
   flex-basis: 40%;
   position: relative;
   margin-bottom: 1rem;
-@media (min-width: 768px) {
-  flex-basis: 30%;
-}
+  @media (min-width: 768px) {
+    flex-basis: 30%;
+  }
 `;
 const MovieInfo = styled.div`
   display: flex;
@@ -98,7 +111,7 @@ const MovieInfo = styled.div`
   font-weight: 300;
   font-size: 11px;
   line-height: 14px;
- 
+
   div {
     display: flex;
     gap: 0.5rem;
@@ -106,7 +119,7 @@ const MovieInfo = styled.div`
   p {
     margin: 0;
     mix-blend-mode: normal;
-  opacity: 0.75;
+    opacity: 0.75;
   }
   h4 {
     margin: 0;

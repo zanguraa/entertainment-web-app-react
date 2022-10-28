@@ -49,4 +49,13 @@ const SearchInput = styled.input`
   &::-webkit-search-results-decoration {
     display: none;
   }
+  @media (min-width: 768px) {
+    min-width: 321px;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 30px;
+    color: #ffffff;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+  }
 `;

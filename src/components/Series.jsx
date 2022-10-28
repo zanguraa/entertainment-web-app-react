@@ -1,20 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import MoviesCreator from './MoviesCreator'
 import MoviesData from '../data.json';
 import Header from './Header';
 import Search from './Search';
 import styled from 'styled-components';
 
-function Series() {
+function Series({title}) {
+
+  const [searchValue, setSearchValue] = useState("");
+
+  const HandelClick = (e) => {
+    setSearchValue(e.target.value);
+    console.log(e.target.value);
+  };
 
     const onlySeries = MoviesData.filter(series => series.category === 'TV Series')
 
   return (
     <HomeCont>
       <Header path={"Series"}/>
-      <Search />
+      <Search value={searchValue} onChange={HandelClick} />
       <MoviesBody>
-    <MoviesCreator data={onlySeries} />
+    <MoviesCreator data={onlySeries} condition={searchValue} title={'TV Series'} />
     </MoviesBody>
     </HomeCont>
   )

@@ -1,25 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "./Search";
 import Header from "./Header";
 import styled from "styled-components";
 import TrendingSlider from "./TrendingSlider";
-import MoviesData from '../data.json';
+import MoviesData from "../data.json";
 import MoviesCreator from "./MoviesCreator";
 
 function Home() {
+  const [searchValue, setSearchValue] = useState("");
 
-  const allMovies = MoviesData.map((movie, index)=> {
-    return movie
-  })
+  const HandelClick = (e) => {
+    setSearchValue(e.target.value);
+    console.log(e.target.value);
+  };
 
+  const allMovies = MoviesData.map((movie, index) => {
+    return movie;
+  });
 
   return (
     <HomeCont>
       <Header path={"/"} />
-      <Search />
+      <Search value={searchValue} onChange={HandelClick} />
       <MoviesBody>
-      <TrendingSlider MoviesData={MoviesData} />
-        <MoviesCreator data={allMovies} />
+        {searchValue.length > 0 ? (
+          <MoviesCreator data={allMovies} condition={searchValue} />
+        ) : (
+          <>
+            <TrendingSlider MoviesData={MoviesData} />
+            <MoviesCreator
+              data={allMovies}
+              condition={searchValue.trim()}
+              title="Recommended for you"
+            />
+          </>
+        )}
       </MoviesBody>
     </HomeCont>
   );

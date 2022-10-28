@@ -101,9 +101,18 @@ const HeaderCont = styled.div`
     width: 1rem;
     height: 1rem;
   }
+  @media (min-width: 768px) {
+    img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  }
 `;
 
 const IconCont = styled.div`
   display: flex;
   gap: 1rem;
+  @media (min-width: 768px) {
+    gap: 2rem;
+  }
 `;

@@ -1,31 +1,27 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import MoviesCreator from "./MoviesCreator";
 import MoviesData from "../data.json";
 import Header from "./Header";
 import Search from "./Search";
 import styled from "styled-components";
 
-function Movies() {
+function Movies(props) {
   const onlyMovies = MoviesData.filter((series) => series.category === "Movie");
 
-  const [value, setValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   const HandelClick = (e) => {
-    setValue(e.target.value);
+    setSearchValue(e.target.value);
     console.log(e.target.value);
   };
 
   return (
     <HomeCont>
       <Header path={"Movies"} />
-      <Search value={value} onChange={HandelClick} />
+      <Search value={searchValue} onChange={HandelClick} />
       <MoviesBody>
-      {value.length > 0 ? 
-      
-        <MoviesCreator data={onlyMovies} condition={value} /> :
-       ( <MoviesCreator data={onlyMovies} condition={value.trim()} />) }
-       </MoviesBody>
-      
+        <MoviesCreator data={onlyMovies} title="Movies" condition={searchValue}/>
+      </MoviesBody>
     </HomeCont>
   );
 }
