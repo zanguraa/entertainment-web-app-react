@@ -27,8 +27,8 @@ function TrendingSlider({ MoviesData }) {
               gap: 60,
             },
             1440: {
-              fixedWidth: 400,
-              gap: 30,
+              fixedWidth: 470,
+              gap: 40,
             },
             768: {
               fixedWidth: 470,
@@ -64,8 +64,12 @@ const SliderContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
   h2 {
     color: white;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 90vw;
   }
 `;
 
@@ -78,7 +82,7 @@ const TrendingMovies = styled.div`
     height: auto;
     border-radius: 8px;
   }
-  @media (min-width: 768px) {
+ @media screen and (min-width: 768px) {
     min-width: 470px;
    
   }

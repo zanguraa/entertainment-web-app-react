@@ -109,11 +109,12 @@ const HeaderCont = styled.div`
   justify-content: space-between;
   align-items: center;
   background: #161d2f;
+  
   img {
     width: 1rem;
     height: 1rem;
   }
-  @media (min-width: 768px) {
+ @media screen and (min-width: 768px) {
     margin: 1.5rem;
     border-radius: 10px;
     padding: 1.5rem 1rem;
@@ -121,13 +122,25 @@ const HeaderCont = styled.div`
       width: 1.25rem;
       height: 1.25rem;
     }
+   @media screen and (min-width: 1440px) {
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 5rem;
+      height: 960px;
+      margin: 0;
+    }
   }
 `;
 
 const IconCont = styled.div`
   display: flex;
   gap: 1rem;
-  @media (min-width: 768px) {
+  
+ @media screen and (min-width: 768px) {
     gap: 2rem;
   }
+ @media screen and (min-width: 1440px) {
+      flex-direction: column;
+      height: 960px;
+    }
 `;

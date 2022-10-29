@@ -39,4 +39,5 @@ function App() {
 
 export default App;
 
-const MainCont = styled.div``;
+const MainCont = styled.div`
+padding: 2rem`;

@@ -50,14 +50,18 @@ export default Home;
 
 const HomeCont = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   gap: 1rem;
   background: #10141e;
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
 `;
 
 const MoviesBody = styled.div`
   padding: 1rem;
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding: 1.25rem;
   }
 `;

@@ -21,16 +21,16 @@ function MoviesCreator({ data, setData, title, condition }) {
     : data;
 
   return (
-    <div>
+    <Container >
       <h2 style={{ color: "white" }}>{title}</h2>
       <MoviesConfig>
         {filteredMovies.map((movie, index) => {
           return (
-            <MovieSingle style={{ flexBasis: "40%" }} key={index}>
+            <MovieSingle key={index}>
               <img
                 style={{
-                  minWidth: "163px",
                   width: "100%",
+                  maxWidth: "100%",
                   height: "auto",
                   borderRadius: "8px",
                 }}
@@ -49,7 +49,7 @@ function MoviesCreator({ data, setData, title, condition }) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
               >
                 {" "}
@@ -83,29 +83,38 @@ function MoviesCreator({ data, setData, title, condition }) {
           );
         })}
       </MoviesConfig>
-    </div>
+    </Container>
   );
 }
 
 export default MoviesCreator;
 
+const Container = styled.div`
+display: flex;
+flex-direction: column;
+gap: 2rem;
+`
+
 const MoviesConfig = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
-  @media (min-width: 768px) {
+
+ @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+  }
+ @media screen and (min-width: 1440px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 `;
 
 const MovieSingle = styled.div`
-  flex-basis: 40%;
   position: relative;
   margin-bottom: 1rem;
-  @media (min-width: 768px) {
-    flex-basis: 30%;
+  width: auto;
+  height: 100%;
+ @media screen and (min-width: 768px) {
   }
 `;
 const MovieInfo = styled.div`
@@ -136,7 +145,7 @@ const MovieInfo = styled.div`
     opacity: 1;
   }
 
-  @media (min-width: 768px) {
+ @media screen and (min-width: 768px) {
     font-weight: 300;
     font-size: 13px;
     line-height: 16px;
@@ -146,7 +155,7 @@ const MovieInfo = styled.div`
 const ImgMovie = styled.img`
   width: 10px;
   height: 10px;
-  @media (min-width: 768px) {
+ @media screen and (min-width: 768px) {
     width: 12px;
     height: 12px;
   }

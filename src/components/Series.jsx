@@ -19,8 +19,9 @@ function Series({ data, setData }) {
   return (
     <HomeCont>
       <Header path={"Series"}/>
-      <Search value={searchValue} onChange={HandelClick} />
+    
       <MoviesBody>
+      <Search value={searchValue} onChange={HandelClick} />
     <MoviesCreator data={onlySeries} setData={setData} condition={searchValue} title={'TV Series'} />
     </MoviesBody>
     </HomeCont>
@@ -34,8 +35,14 @@ const HomeCont = styled.div`
   flex-direction: column;
   gap: 1rem;
   background: #10141e;
+ @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
 `;
 
 const MoviesBody = styled.div`
   padding: 1rem;
+ @media screen and (min-width: 768px) {
+    padding: 1.25rem;
+  }
 `;

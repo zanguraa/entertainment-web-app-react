@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: 'Outfit', sans-serif;
   background: #10141e;
+  transition: all .3s ease-out;
 }
 
 code {
