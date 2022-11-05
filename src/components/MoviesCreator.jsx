@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MoviesIcon, BookmarkSaved, BookmarkFull, Oval } from "../assets/index";
+import { MoviesIcon, BookmarkSaved, BookmarkFull, Oval, PlayIcon } from "../assets/index";
 
 function MoviesCreator({ data, setData, title, condition }) {
   const bookmarkHandler = (title) => {
@@ -27,6 +27,10 @@ function MoviesCreator({ data, setData, title, condition }) {
         {filteredMovies.map((movie, index) => {
           return (
             <MovieSingle key={index}>
+            <ImgCont>
+            <HoverDiv>
+              <img src={PlayIcon} alt="play" />
+            </HoverDiv>
               <img
                 style={{
                   width: "100%",
@@ -37,6 +41,8 @@ function MoviesCreator({ data, setData, title, condition }) {
                 src={process.env.PUBLIC_URL + movie.thumbnail.regular.large}
                 alt="movies-poster"
               />
+              </ImgCont>
+
               <div
                 style={{
                   position: "absolute",
@@ -55,7 +61,7 @@ function MoviesCreator({ data, setData, title, condition }) {
                 {" "}
                 <img
                   onClick={() => bookmarkHandler(movie.title)}
-                  style={{ width: "11x", height: "14px" }}
+                  style={{ width: "11x", height: "14px", zIndex: "0" }}
                   src={movie.isBookmarked ? BookmarkFull : BookmarkSaved}
                   alt="bookmark-saved"
                 />
@@ -160,3 +166,26 @@ const ImgMovie = styled.img`
     height: 12px;
   }
 `;
+
+
+const ImgCont = styled.div`
+  position: relative;
+  
+`;
+
+const HoverDiv = styled.div`
+  position: absolute;
+  top: 40%;
+  left: 30%;
+ cursor: pointer;
+  opacity: 0;
+  &:hover {
+      opacity: 1;
+      transition: all 0.3s;
+    }
+    img {
+      width: 117px;
+      height: 50px;
+    }
+    
+`
