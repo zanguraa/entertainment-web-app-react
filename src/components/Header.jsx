@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 
 import {
   TvSeriesIcon,
-  HomeIcon,
   MoviesLogo,
   MoviesIcon,
   UserProfile,
@@ -130,9 +129,9 @@ const HeaderCont = styled.div`
   background: #161d2f;
 
   img {
-    width: 1rem;
-    height: 1rem;
-  }
+      width: 1.25rem;
+      height: 1.25rem;
+    }
   @media screen and (min-width: 768px) {
     margin: 1.5rem;
     border-radius: 10px;

@@ -40,4 +40,10 @@ function App() {
 export default App;
 
 const MainCont = styled.div`
-padding: 2rem`;
+  
+
+@media screen and (min-width: 1440px) {
+    padding: 2rem;
+  }
+
+`

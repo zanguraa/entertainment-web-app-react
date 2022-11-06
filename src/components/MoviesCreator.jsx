@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { MoviesIcon, BookmarkSaved, BookmarkFull, Oval, PlayIcon } from "../assets/index";
+import {
+  MoviesIcon,
+  BookmarkSaved,
+  BookmarkFull,
+  Oval,
+  PlayIcon,
+} from "../assets/index";
 
 function MoviesCreator({ data, setData, title, condition }) {
   const bookmarkHandler = (title) => {
@@ -21,26 +27,26 @@ function MoviesCreator({ data, setData, title, condition }) {
     : data;
 
   return (
-    <Container >
+    <Container>
       <h2 style={{ color: "white" }}>{title}</h2>
       <MoviesConfig>
         {filteredMovies.map((movie, index) => {
           return (
             <MovieSingle key={index}>
-            <ImgCont>
-            <HoverDiv>
-              <img src={PlayIcon} alt="play" />
-            </HoverDiv>
-              <img
-                style={{
-                  width: "100%",
-                  maxWidth: "100%",
-                  height: "auto",
-                  borderRadius: "8px",
-                }}
-                src={process.env.PUBLIC_URL + movie.thumbnail.regular.large}
-                alt="movies-poster"
-              />
+              <ImgCont>
+                <HoverDiv>
+                  <img src={PlayIcon} alt="play" />
+                </HoverDiv>
+                <img
+                  style={{
+                    width: "100%",
+                    maxWidth: "100%",
+                    height: "auto",
+                    borderRadius: "8px",
+                  }}
+                  src={process.env.PUBLIC_URL + movie.thumbnail.regular.large}
+                  alt="movies-poster"
+                />
               </ImgCont>
 
               <div
@@ -96,21 +102,21 @@ function MoviesCreator({ data, setData, title, condition }) {
 export default MoviesCreator;
 
 const Container = styled.div`
-display: flex;
-flex-direction: column;
-gap: 2rem;
-`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
 
 const MoviesConfig = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 
- @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.75rem;
   }
- @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1440px) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 `;
@@ -120,7 +126,7 @@ const MovieSingle = styled.div`
   margin-bottom: 1rem;
   width: auto;
   height: 100%;
- @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
   }
 `;
 const MovieInfo = styled.div`
@@ -151,7 +157,7 @@ const MovieInfo = styled.div`
     opacity: 1;
   }
 
- @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     font-weight: 300;
     font-size: 13px;
     line-height: 16px;
@@ -161,31 +167,39 @@ const MovieInfo = styled.div`
 const ImgMovie = styled.img`
   width: 10px;
   height: 10px;
- @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 12px;
     height: 12px;
   }
 `;
 
-
 const ImgCont = styled.div`
   position: relative;
-  
 `;
 
 const HoverDiv = styled.div`
   position: absolute;
-  top: 40%;
+  top: 37%;
   left: 30%;
- cursor: pointer;
+  cursor: pointer;
   opacity: 0;
+
   &:hover {
-      opacity: 1;
-      transition: all 0.3s;
-    }
+    opacity: 1;
+    transition: all 0.3s;
+  }
+  img {
+    width: 117px;
+    height: 50px;
+    width: 65px;
+    height: 32px;
+  }
+  @media screen and (min-width: 768px) {
+    top: 40%;
+    left: 30%;
     img {
       width: 117px;
       height: 50px;
     }
-    
-`
+  }
+`;
